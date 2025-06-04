@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF3E0"
+    tools:context=".games.carromboard.CarromBoardView">
+
+    <!-- Player Names and Status Bar -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center"
+        android:background="#DCDCDC">
+
+        <TextView
+            android:id="@+id/playerOneName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="You (Online)"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/playerTwoName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Opponent (Online)"
+            android:textSize="18sp"
+            android:textColor="#008000"
+            android:gravity="end"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Carrom Board Game View -->
+    <com.praveen.bookmyplay.games.carromboard.CarromBoardSurface
+        android:id="@+id/carromBoardSurface"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/header"
+        android:layout_above="@id/footer" />
+
+    <!-- Footer Placeholder for Scores / Exit / Turns -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="12dp"
+        android:background="#EEEEEE"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/gameStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Turn"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+</RelativeLayout>

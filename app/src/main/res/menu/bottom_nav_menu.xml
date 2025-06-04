@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_booking"
+        android:icon="@drawable/ic_booking"
+        android:title="Booking" />
+
+    <item android:id="@+id/nav_club"
+        android:icon="@drawable/ic_club"
+        android:title="Club" />
+
+    <item android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item android:id="@+id/nav_game"
+        android:icon="@drawable/ic_trophy"
+        android:title="Gam" />
+
+    <item android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="Chat" />
+</menu>

@@ -1,0 +1,87 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/turnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="White's turn"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"/>
+
+    <!-- Square chessboard container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <GridLayout
+            android:id="@+id/chessBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="8"
+            android:rowCount="8"
+            android:background="#000000"/>
+    </FrameLayout>
+
+    <!-- Rest of your layout remains the same -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/whiteTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="05:00"
+            android:textSize="18sp"
+            android:layout_marginEnd="24dp"/>
+
+        <Button
+            android:id="@+id/btnFlip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flip Board"/>
+
+        <TextView
+            android:id="@+id/blackTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="05:00"
+            android:textSize="18sp"
+            android:layout_marginStart="24dp"/>
+    </LinearLayout>
+
+    <!-- History section with fixed height -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:text="Move History"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/historyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"/>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
