@@ -1,81 +1,90 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    // ^-- Plugin declarations for Android and Kotlin
 }
 
 android {
     namespace = "com.praveen.bookmyplay"
-    compileSdk = 35
+    compileSdk = 35 // <-- SDK version used for compiling the app
 
     defaultConfig {
-        applicationId = "com.praveen.bookmyplay"
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = "com.praveen.bookmyplay" // <-- App ID
+        minSdk = 24 // <-- Minimum Android version supported
+        targetSdk = 35 // <-- Target Android version
+        versionCode = 1 // <-- Version code for internal tracking
+        versionName = "1.0" // <-- User-visible version name
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // <-- Instrumentation runner for UI tests
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = false // <-- No code shrinking for release
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro" // <-- Custom ProGuard rules
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11 // <-- Java 11 source compatibility
+        targetCompatibility = JavaVersion.VERSION_11 // <-- Java 11 target compatibility
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "11" // <-- Kotlin JVM bytecode target
     }
-    packagingOptions {
-        // Exclude duplicate license/notice files to fix build error
-        exclude("META-INF/NOTICE.md")
-        exclude("META-INF/LICENSE.md")
-        exclude("META-INF/LICENSE.txt")
-        exclude("META-INF/NOTICE.txt")
-    }
+
     buildFeatures {
-        viewBinding = true
+        viewBinding = true // <-- Enable ViewBinding
+    }
+
+    packagingOptions {
+        exclude("META-INF/NOTICE.md") // <-- Fix for duplicate NOTICE.md in packaging
+        exclude("META-INF/LICENSE.md")
+        // ^-- Place here to prevent build errors due to conflicting metadata
     }
 }
 
 dependencies {
     // Android core and compatibility libraries
-    implementation(libs.androidx.core.ktx) // Kotlin extensions
-    implementation(libs.androidx.appcompat) // AppCompat (for backwards compatibility)
+    implementation(libs.androidx.core.ktx) // <-- Core Kotlin extensions for Android
+    implementation(libs.androidx.appcompat) // <-- AppCompat for backward compatibility
 
-    // CardView — required for the glass UI container
-    implementation("androidx.cardview:cardview:1.0.0")
+    // CardView support for material glass-like container UI
+    implementation("androidx.cardview:cardview:1.0.0") // <-- CardView support library
 
-    // Material Design components
-    implementation(libs.material) // Make sure this is Material 3 if you want modern styling
+    // Material Design Components
+    implementation(libs.material) // <-- Material components (use M3 if applicable)
 
-    // Activity and layout support
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
+    // Activity and ConstraintLayout support
+    implementation(libs.androidx.activity) // <-- Support for modern Activity APIs
+    implementation(libs.androidx.constraintlayout) // <-- ConstraintLayout for complex layouts
 
-    implementation("com.sun.mail:android-mail:1.6.7")
-    implementation("com.sun.mail:android-activation:1.6.7")
+    // JavaMail API for email support
+    implementation("com.sun.mail:android-mail:1.6.7") // <-- Email library
+    implementation("com.sun.mail:android-activation:1.6.7") // <-- Activation support
 
-    implementation("androidx.compose.material:material-icons-extended:1.6.0")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    // Optional: Material Icons for Compose (not required unless using Compose)
+    implementation("androidx.compose.material:material-icons-extended:1.6.0") // <-- Optional, remove if not using Compose
+
+    // Retrofit for networking
+    implementation("com.squareup.retrofit2:retrofit:2.9.0") // <-- Retrofit core
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0") // <-- Retrofit Gson converter
+
+    // Navigation Component support
+    implementation(libs.androidx.navigation.fragment.ktx) // <-- Fragment navigation
+    implementation(libs.androidx.navigation.ui.ktx) // <-- UI support for navigation
 
     // Unit Testing
-    testImplementation(libs.junit)
+    testImplementation(libs.junit) // <-- Local unit tests
 
-    // Android Instrumented Testing
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    // Android Instrumented Tests
+    androidTestImplementation(libs.androidx.junit) // <-- Android JUnit extensions
+    androidTestImplementation(libs.androidx.espresso.core) // <-- Espresso UI testing
 
-    // Optional: If you're using Material 3, add this explicitly:
-    // implementation 'androidx.compose.material3:material3:<latest_version>'
+    // Optional: Uncomment below if you migrate to Material 3
+    // implementation("androidx.compose.material3:material3:<latest_version>") // <-- Material 3 components
 }
