@@ -4,4 +4,15 @@
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">#4D000000</item> <!-- 30% opacity black -->
     </style>
+    <!-- styles.xml -->
+    <style name="NoIndicator" parent="">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconSize">24dp</item> <!-- optional: adjust icon size -->
+        <item name="itemPaddingTop">2dp</item> <!-- shrink top padding -->
+        <item name="itemPaddingBottom">2dp</item> <!-- shrink bottom padding -->
+        <item name="labelVisibilityMode">labeled</item> <!-- show labels always -->
+    </style>
+
 </resources>
